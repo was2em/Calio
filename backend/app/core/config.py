@@ -15,6 +15,10 @@ class Settings(BaseSettings):
     database_url: str = "postgresql+psycopg://postgres:postgres@localhost:5432/calio_db"
     secret_key: str = "change-me"
 
+    access_token_expire_minutes: int = 15
+    refresh_token_expire_days: int = 7
+
+
     model_config = SettingsConfigDict(
         env_file=ENV_FILE,
         env_file_encoding="utf-8",

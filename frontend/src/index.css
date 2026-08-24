@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* Light Mode: White-Green base & Avocado Green accent */
+    --background: 135 30% 97%;
+    --foreground: 140 50% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 140 50% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 140 50% 10%;
+
+    --primary: 87 62% 26%; /* Avocado Green #4b7012 */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 135 25% 92%;
+    --secondary-foreground: 140 50% 15%;
+
+    --muted: 135 20% 92%;
+    --muted-foreground: 140 15% 42%;
+
+    --accent: 135 35% 88%;
+    --accent-foreground: 87 62% 26%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 135 25% 85%;
+    --input: 135 25% 85%;
+    --ring: 87 62% 26%;
+
+    --radius: 0.85rem;
+
+    /* Highlight tokens */
+    --neon-accent: 89 100% 50%;
+    --avocado: 87 62% 26%;
+  }
+
+  .dark {
+    /* Dark Mode: Deep Dark Forest Green & Vibrant Electric Neon Green (#84ff00) */
+    --background: 140 50% 4%;
+    --foreground: 135 40% 98%;
+
+    --card: 142 45% 7%;
+    --card-foreground: 135 40% 98%;
+
+    --popover: 142 45% 7%;
+    --popover-foreground: 135 40% 98%;
+
+    --primary: 89 100% 50%; /* Vibrant Bright Electric Green #84ff00 */
+    --primary-foreground: 142 65% 4%; /* Dark forest text for sharp contrast */
+
+    --secondary: 142 30% 12%;
+    --secondary-foreground: 135 40% 90%;
+
+    --muted: 142 25% 10%;
+    --muted-foreground: 140 20% 65%;
+
+    --accent: 142 35% 14%;
+    --accent-foreground: 89 100% 50%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 142 30% 14%;
+    --input: 142 30% 14%;
+    --ring: 89 100% 50%;
+  }
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom green glow & glassmorphism utility classes */
+.glass-panel {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.dark .glass-panel {
+  background: rgba(9, 31, 18, 0.75);
+  border: 1px solid rgba(132, 255, 0, 0.12);
+}
+
+.light .glass-panel, :root:not(.dark) .glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(75, 112, 18, 0.15);
+}
+
+.glow-electric {
+  box-shadow: 0 0 25px -3px rgba(132, 255, 0, 0.4);
+}
+
+.glow-electric-sm {
+  box-shadow: 0 0 12px 0px rgba(132, 255, 0, 0.3);
+}
+
+.glow-avocado {
+  box-shadow: 0 4px 20px -2px rgba(75, 112, 18, 0.25);
+}
+
+.glow-hover-green {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark .glow-hover-green:hover {
+  border-color: rgba(132, 255, 0, 0.5);
+  box-shadow: 0 0 20px -3px rgba(132, 255, 0, 0.35);
+  transform: translateY(-2px);
+}
+
+.light .glow-hover-green:hover, :root:not(.dark) .glow-hover-green:hover {
+  border-color: rgba(75, 112, 18, 0.4);
+  box-shadow: 0 6px 20px -2px rgba(75, 112, 18, 0.2);
+  transform: translateY(-2px);
+}
+
